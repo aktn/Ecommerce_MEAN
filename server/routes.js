@@ -1,7 +1,6 @@
 var path = require('path');
 
-//Application Routes
 module.exports = function(app) {
-
-    
+	//API Routes
+    app.use('/api/users', require('./api/user'));
 };
