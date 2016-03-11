@@ -23,6 +23,7 @@ exports.create = function(req, res) {
     item.title = req.body.title;
     item.price = req.body.price;
     item.stock = req.body.stock;
+    item.category = req.body.category;
     item.description = req.body.description;
     item.imageBin = req.body.imageBin;
     item.imageUrl = req.body.imageUrl;
