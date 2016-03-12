@@ -2,7 +2,6 @@ var User = require('./user.model');
 var path = require('path');
 var jwt = require('jsonwebtoken'); //token based Authentication
 var config     = require('../../config/env/development');
-var superSecret = config.secret; // secret variable
 
 //For returning all the registered users
 exports.index = function(req, res){
