@@ -1,0 +1,21 @@
+<div class="jumbotron text-center"> <h1>Product Lists</h1>
+    <table class="table table-bordered table-striped" ng-show="product.products">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in product.products">
+            <td>{{ item.title }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.stock }}</td>
+            <td>{{ item.category }}</td>
+            <td><a ng-href="/products/{{ item._id }}" class="btn btn-info">Details</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

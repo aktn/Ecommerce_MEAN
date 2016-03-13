@@ -1,0 +1,25 @@
+<body>
+    <div class="jumbotron text-center">
+        <table class="table table-bordered table-striped" ng-show="product.productData">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ product.productData.title }}</td>
+                <td>{{ product.productData.stock }}</td>
+                <td>{{ product.productData.price }}</td>
+                <td>{{ product.productData.category }}</td>
+                <td>{{ product.productData.description }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+

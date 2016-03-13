@@ -27,7 +27,8 @@ app.use(morgan('dev'));
 //Connecting MongoDB
 mongoose.connect(config.mongo.database);
 
-app.use(express.static(__dirname+'/../public'));
+//Setting up directory for frontend to utilise
+app.use(express.static(__dirname+'/../client'));
 
 //For Seeding Sample Data
 if (config.seedDB) {
@@ -37,6 +38,12 @@ if (config.seedDB) {
 
 //Configuring for route dir
 require('./routes')(app);
+
+//Main app route
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/../client/app/main/main.html'));
+});
+
 
 // Running the server
 app.listen(config.port);
