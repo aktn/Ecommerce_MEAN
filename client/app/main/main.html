@@ -17,14 +17,35 @@
     <script src="app/products/products.service.js"></script>
     <script src="app/products/products.controller.js"></script>
     <script src="app/products/products.route.js"></script>
+
+    <!-- routes relating with user -->
+    <script src="app/user/user.route.js"></script>
+    <!-- controller & service relating with user -->
+    <script src="app/user/login/user-auth.service.js"></script>
+    <script src="app/user/login/user-login.controller.js"></script>
+
+
     
     <!-- angular file -->
     <script src="app/app.js"></script> 
 </head>
 
-<body ng-app="MEAN_Ecommerce" >
+<body ng-app="MEAN_Ecommerce" ng-controller="userLogInController as main" >
 
     <header>
+        <div class="navbar navbar-custom" ng-if="main.loggedIn">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-search text-danger"></span> Ecommerce Site</a>
+                </div>  
+        
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+                    <li ng-if="main.loggedIn" class="navbar-text">Hey {{ main.user.email }}!</li>
+                    <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <main class="container">

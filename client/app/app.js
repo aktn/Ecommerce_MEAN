@@ -8,10 +8,25 @@ angular.module('MEAN_Ecommerce',[
     */
     'product.routes',
     'productCtrl',
-    'productService'
+    'productService',
+
+    /**
+    Relating with user login part
+    */
+    'user.routes',
+    'userLogInCtrl',
+    'userAuthService'
+    
 
 
 
 
-]);
+])
+
+.config(function($httpProvider) {
+
+    // attach our auth interceptor to the http requests
+    $httpProvider.interceptors.push('AuthInterceptor');
+
+});
 
