@@ -27,8 +27,17 @@ exports.create = function(req, res){
     user.password = req.body.password;
 
     user.save(function(err){
-        if(err) res.send(err);
-        res.json({message: 'User has been created!'});
+        if (err){
+            // If user already exists
+            if (err.code == 11000) 
+                return res.json({ 
+                    success: false, 
+                    message: 'User with that email already exists'
+                });
+            else 
+                return res.send(err);
+        }
+        res.json({message: 'User has been created! Please Login'});
     });
 };
 

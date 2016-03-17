@@ -39,7 +39,7 @@ angular.module('userAuthService', [])
         //grab the current login user
         userAuthFactory.getUser = function() {
             if (AuthToken.getToken())
-                return $http.get('/api/me', { cache: true });
+                return $http.get('/api/login/me', { cache: true });
             else
                 return $q.reject({ message: 'Token is not there' });
         };

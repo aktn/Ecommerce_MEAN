@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
-
+var validate = require('mongoose-validate') //For validation certain types Eg.email
 
 //Defining schema for User
 var UserSchema = new Schema({
-    name : String,
-    email : { type: String},
-    password : {type: String, select:false}
+    name : {type: String, required: true},
+    email : { type: String, required: true, validate: [validate.email, 'invalid email address'] , index: { unique: true }}, //To set unique
+    password : {type: String, required: true, select:false}
 });
 
 //Hashing the user's password before saving

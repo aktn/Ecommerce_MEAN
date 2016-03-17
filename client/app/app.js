@@ -15,8 +15,13 @@ angular.module('MEAN_Ecommerce',[
     */
     'user.routes',
     'userLogInCtrl',
-    'userAuthService'
+    'userAuthService',
     
+    /**
+    Relating with user SignIn part
+    */
+    'userSignUpCtrl',
+    'userSignUpService'
 
 
 
