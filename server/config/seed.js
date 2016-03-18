@@ -46,14 +46,14 @@ Product.find({}).remove(function(){
             price: 30,
             description: 'Suitable for all iPhone6 models',
             category: 'accessory',
-            imageUrl: 'client/assets/uploads/1.jpg'
+            imageUrl: '/assets/uploads/1.jpg'
         },{
             title: 'Pencil',
             stock: 16,
             price: 3,
             description: 'Suitable for children',
             category: 'stationery',
-            imageUrl: 'client/assets/uploads/1.jpg'},
+            imageUrl: '/assets/uploads/2.jpg'},
         function()
         {
             console.log('Product data has been seeded!');
