@@ -21,7 +21,12 @@ angular.module('MEAN_Ecommerce',[
     Relating with user SignIn part
     */
     'userSignUpCtrl',
-    'userSignUpService'
+    'userSignUpService',
+
+    /**
+    For integrating shopping cart
+    */
+    'ngCart'
 
 
 
