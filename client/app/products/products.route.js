@@ -15,6 +15,13 @@ angular.module('product.routes', ['ngRoute'])
                 templateUrl: 'app/products/views/product-details.html',
                 controller: 'productDetailsController',
                 controllerAs: 'product'
+            })
+
+            //route for checkout
+            .when('/checkout', {
+                templateUrl : 'app/products/views/product-checkout.html',
+                controller  : 'productController',
+                controllerAs: 'items'
             });
 
         //for pretty URLs
