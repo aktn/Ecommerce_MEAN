@@ -31,7 +31,7 @@ angular.module('productCtrl',['productService'])
     //getting the client token
     .constant('clientTokenPath', '/api/payment/client_token')
 
-    .controller('ProductCheckoutCtrl', function($scope, $http, ngCart){
+    .controller('ProductCheckoutCtrl', function($scope, $location, $http, ngCart){
 
         $scope.errors = '';
         //authorise the payment options such as credit card or paypal

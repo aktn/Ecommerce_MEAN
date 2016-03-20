@@ -12,7 +12,7 @@
                 <h5>Description :{{ product.productData.description }}</h5>
                 <p>
                     <!-- Adding prodcut into cart -->
-                    <ngcart-addtocart id="{{item._id}}" quantity="1" quantity-max="9" name="{{item.title}}" price="{{item.price}}" template-url="components/ngcart/addtocart.html" data="product">Add to Cart</ngcart-addtocart>
+                    <ngcart-addtocart id="{{product.productData._id}}" quantity="1" quantity-max="9" name="{{product.productData.title}}" price="{{product.productData.price}}" template-url="components/ngcart/addtocart.html" data="product">Add to Cart</ngcart-addtocart>
                 </p>
             </div>
         </div>
