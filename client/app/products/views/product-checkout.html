@@ -8,6 +8,20 @@
   </div>
 </div>
 
+<div class="row">
+    <h3>Select payment type</h3>
+    <p class="help-block">{{ errors }}</p><br>
+    
+    <div class="col-md-6">
+      <form id="checkout" method="post" action="/checkout">
+      	<!-- Braintree will load payment options -->
+        <braintree-dropin options="paymentOptions">Loading...</braintree-dropin>
+        <input type="submit" value="Pay">
+      </form>  
+    </div>
+
+</div>
+
 
 
  

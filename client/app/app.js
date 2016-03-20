@@ -26,7 +26,13 @@ angular.module('MEAN_Ecommerce',[
     /**
     For integrating shopping cart
     */
-    'ngCart'
+    'ngCart',
+
+    /**
+    Integrating payment gateway
+    */
+    'braintree-angular'
+
 
 
 

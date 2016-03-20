@@ -19,6 +19,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
+    "braintree": "^1.29.0",
     "composable-middleware": "^0.3.0",
     "express": "^4.13.3",
     "jsonwebtoken": "^5.4.1",
