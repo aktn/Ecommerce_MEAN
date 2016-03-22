@@ -31,7 +31,15 @@ angular.module('MEAN_Ecommerce',[
     /**
     Integrating payment gateway
     */
-    'braintree-angular'
+    'braintree-angular',
+
+    /**
+    Admin Related Area
+    */
+    'admin.routes',
+    'adminCtrl',
+    'adminAuthService'
+
 
 
 
