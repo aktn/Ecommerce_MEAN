@@ -38,7 +38,10 @@ angular.module('MEAN_Ecommerce',[
     */
     'admin.routes',
     'adminCtrl',
-    'adminAuthService'
+    'adminAuthService',
+
+    'adminProductCtrl',
+    'adminProductService'
 
 
 

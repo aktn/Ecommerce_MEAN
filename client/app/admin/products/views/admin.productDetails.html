@@ -1,0 +1,25 @@
+<body>
+    <table class="table table-bordered table-striped" ng-show="product.productData">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ product.productData.title }}</td>
+                <td>{{ product.productData.stock }}</td>
+                <td>{{ product.productData.price }}</td>
+                <td>{{ product.productData.description }}</td>
+                <td class="col-sm-2">
+                    <a ng-href="admin/products/edit/{{ product.productData._id }}" class="btn btn-info">Edit</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
