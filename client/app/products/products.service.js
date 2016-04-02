@@ -14,6 +14,20 @@ angular.module('productService', [])
             return $http.get('/api/products/'+id);
         };
 
-
         return productFactory;
-    });
+    })
+
+    // ===================================================
+    //For backend search
+    //$resource to interact with RESTful server side
+    // ===================================================
+    .factory('ProductSearch', function ($resource) {
+       return $resource('/api/products/:id/:controller', null, {
+         
+         'search': { method: 'GET', isArray: true,
+           params: {
+             controller: 'search'
+                }               
+            }
+        }); 
+   });

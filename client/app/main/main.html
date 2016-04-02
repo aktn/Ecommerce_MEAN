@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
 
     <!-- controller & service for displaying products -->
     <script src="app/products/products.service.js"></script>
@@ -49,7 +50,9 @@
     <script src="bower_components/braintree-angular/dist/braintree-angular.js"></script>
     <script src="https://js.braintreegateway.com/js/braintree-2.21.0.min.js"></script>
     
-
+    <!-- For backend search -->
+    <script src="components/searchbar/searchbar.controller.js"></script>
+    
 </head>
 
 <body ng-app="MEAN_Ecommerce" ng-controller="userLogInController as main" >
@@ -59,7 +62,10 @@
             <div class="container">
                 <div class="navbar-header">
                     <a href="/products" class="navbar-brand"><span class="glyphicon glyphicon-search text-danger"></span> Ecommerce Site</a>
-                </div>  
+                </div> 
+
+                <!-- Search box for backend search -->
+                <div  ng-include="'components/searchbar/searchbar.html'"></div> 
         
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>

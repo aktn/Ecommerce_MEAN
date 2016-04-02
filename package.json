@@ -23,7 +23,7 @@
     "composable-middleware": "^0.3.0",
     "express": "^4.13.3",
     "jsonwebtoken": "^5.4.1",
-    "mongoose": "^4.3.4",
+    "mongoose": "^4.4.10",
     "mongoose-validate": "git://github.com/RGBboy/mongoose-validate.git",
     "morgan": "^1.6.1",
     "multiparty": "^4.1.2"

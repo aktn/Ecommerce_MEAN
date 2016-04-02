@@ -2,6 +2,7 @@
 //Grab other controllers and services
 angular.module('MEAN_Ecommerce',[
     'ngAnimate',
+    'ngResource',
 
     /**
     For displaying products on user interface
@@ -41,7 +42,12 @@ angular.module('MEAN_Ecommerce',[
     'adminAuthService',
 
     'adminProductCtrl',
-    'adminProductService'
+    'adminProductService',
+
+    /**
+    Backend search
+    */
+    'proSearch'
 
 
 

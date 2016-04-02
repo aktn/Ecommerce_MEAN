@@ -1,6 +1,6 @@
 angular.module('productCtrl',['productService'])
 
-    .controller('productController', function(Product){
+    .controller('productController', function(Product,$scope,$rootScope, ProductSearch){
         var prodcuts = this;
 
         //to show products are loading from the server
@@ -15,6 +15,19 @@ angular.module('productCtrl',['productService'])
                 //to display back to frontend interface
                 prodcuts.products = data;
             });
+
+        //$rootScope to watch event emission & broadcast between model & view
+        $rootScope.$on('search:term', function (event, data) {
+         var searchTerm = data.searchTerm;
+          if(searchTerm) {
+            //direct to service for search
+            $scope.products = ProductSearch.search({id: searchTerm});
+            $scope.query = searchTerm;
+          } else { //if there is no matches
+            //$scope.products = Product.query();
+            //$scope.query = '';
+          }
+        });
 
     })
 

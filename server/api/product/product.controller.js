@@ -64,3 +64,14 @@ exports.destroy = function(req, res){
         res.json({ message: 'Item Successfully Deleted' });
     });
 };
+
+//Backend search
+exports.search = function(req, res) {
+     Product
+        //search against keywords provided by the user
+       .find({'$text':{'$search':req.params.term}}) 
+       .exec(function (err, products) {
+         if(err) { return handleError(res, err); }
+         return res.status(200).json(products);
+       });
+};
