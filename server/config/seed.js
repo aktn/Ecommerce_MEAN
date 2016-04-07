@@ -4,14 +4,13 @@ var Product = require('../api/product/product.model');
 
 //For seeding user data
 User.find({}).remove(function(){
-    User.create({
+     User.create({
+        local:{
             name: 'Johnny',
             email: 'johnny@yahoo.com',
             password: 'johnny'
-        },{
-            name: 'Ammy',
-            email: 'Ammy@yahoo.com',
-            password: 'Ammy'},
+            }
+        },
         function()
         {
             console.log('User data has been seeded!');

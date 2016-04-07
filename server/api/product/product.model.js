@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 //Defining data structure for Product
 var productSchema = new Schema({
-	_id         : mongoose.Schema.Types.ObjectId,
+	//_id         : mongoose.Schema.Types.ObjectId,
     title       : { type: String,  trim:true},
     price       : { type: Number },
     stock       : { type: Number, default: 1},

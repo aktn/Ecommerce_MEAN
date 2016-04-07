@@ -5,9 +5,11 @@ var validate = require('mongoose-validate') //For validation certain types Eg.em
 
 //Defining schema for User
 var UserSchema = new Schema({
-    name : {type: String, required: true},
-    email : { type: String, required: true, validate: [validate.email, 'invalid email address'] , index: { unique: true }}, //To set unique
-    password : {type: String, required: true, select:false}
+    local          : {
+        name       : String,
+        email      : { type: String, validate: [validate.email, 'invalid email address'] , index: { unique: true }}, //To set unique
+        password   : String
+    }
 });
 
 //Hashing the user's password before saving
@@ -15,11 +17,11 @@ UserSchema.pre('save', function(next){
     var user = this;
 
     //Hash only if the password has been changed
-    if(!user.isModified('password')) return next();
+    //if(!user.isModified('password')) return next();
 
-    bcrypt.hash(user.password, null, null, function(err, hash){
+    bcrypt.hash(user.local.password, null, null, function(err, hash){
         if(err) res.send(err);
-        user.password = hash;
+        user.local.password = hash;
         next();
     });
 });
@@ -27,7 +29,7 @@ UserSchema.pre('save', function(next){
 //To compare hash password from the database
 UserSchema.methods.comparePassword = function(password){
     var user = this;
-    return bcrypt.compareSync(password, user.password);
+    return bcrypt.compareSync(password, this.local.password);
 };
 
 module.exports = mongoose.model('User', UserSchema);

@@ -12,8 +12,8 @@ var apiRouter = express.Router();
 apiRouter.post('/', function isAuthenticated(req, res) {
     //Getting the user with the provided email address
     User.findOne({
-        email: req.body.email
-    }).select('name email password').exec(function(err, user) {
+        'local.email': req.body.email
+    }).select('local.name local.email local.password').exec(function(err, user) {
 
         if (err) throw err;
         //if no user with the provide email not found
@@ -33,8 +33,8 @@ apiRouter.post('/', function isAuthenticated(req, res) {
             } else {
                 //if everthing is ok creat the token
                 var token = jwt.sign({
-                    name: user.name,
-                    email: user.email
+                    name: user.local.name,
+                    email: user.local.email
                 }, superSecret, {
                     expiresInMinutes: 120 //token will expire in 2 hours
                 });

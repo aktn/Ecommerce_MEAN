@@ -22,9 +22,9 @@ exports.show = function(req, res){
 //Creating new user
 exports.create = function(req, res){
     var user = new User();
-    user.name = req.body.name;
-    user.email = req.body.email;
-    user.password = req.body.password;
+    user.local.name = req.body.name;
+    user.local.email = req.body.email;
+    user.local.password = req.body.password;
 
     user.save(function(err){
         if (err){
@@ -46,9 +46,9 @@ exports.update = function(req, res){
     User.findById(req.params.id, function(err, user){
         if(err) res.send(err);
         //Will update only if one of the following has changed
-        if(req.body.name) user.name = req.body.name;
-        if(req.body.email) user.email = req.body.email;
-        if(req.body.password) user.password = req.body.password;
+        if(req.body.name) user.local.name = req.body.name;
+        if(req.body.email) user.local.email = req.body.email;
+        if(req.body.password) user.local.password = req.body.password;
 
         user.save(function(err){
             if(err) res.send(err);
