@@ -9,4 +9,5 @@ module.exports = function(app) {
     app.use('/api/admin/login', require('./auth/admin'));
     app.use('/api/payment', require('./api/payment'));
     app.use('/api/orders', require('./api/order'));
+    app.use('/auth', require('./auth/facebook'));
 };

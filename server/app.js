@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var config = require('./config/env/development');
 var path = require('path');
 var jwt = require('jsonwebtoken');
+var passport = require('passport'); //For OAuth Authentication
 
 //To get data from POST requests
 app.use(bodyParser.urlencoded({extended: true }));
@@ -24,6 +25,8 @@ app.use(function(req, res, next){
 //HTTP request logger middleware 
 app.use(morgan('dev'));
 
+app.use(passport.initialize());
+
 //Connecting MongoDB
 mongoose.connect(config.mongo.database);
 
@@ -35,7 +38,8 @@ if (config.seedDB) {
     console.log('Seeding Database');
     require('./config/seed');
 }
-
+//Route for OAuth authentication 
+require('./auth/facebook/passport')(passport);
 //Configuring for route dir
 require('./routes')(app);
 

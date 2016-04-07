@@ -5,10 +5,18 @@ var validate = require('mongoose-validate') //For validation certain types Eg.em
 
 //Defining schema for User
 var UserSchema = new Schema({
+    //For local email signUp
     local          : {
         name       : String,
         email      : { type: String, validate: [validate.email, 'invalid email address'] , index: { unique: true }}, //To set unique
         password   : String
+    },
+    //For facebook login
+     facebook        : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
     }
 });
 
