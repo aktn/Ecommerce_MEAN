@@ -9,6 +9,7 @@ var config = require('./config/env/development');
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var passport = require('passport'); //For OAuth Authentication
+var session = require('express-session')
 
 //To get data from POST requests
 app.use(bodyParser.urlencoded({extended: true }));
@@ -21,11 +22,17 @@ app.use(function(req, res, next){
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
     next();
 });
-
+app.use(session({
+  resave: false,
+  saveUninitialized: true,
+  secret: 'bla bla bla' 
+}));
 //HTTP request logger middleware 
 app.use(morgan('dev'));
 
+
 app.use(passport.initialize());
+app.use(passport.session()); 
 
 //Connecting MongoDB
 mongoose.connect(config.mongo.database);
@@ -40,6 +47,7 @@ if (config.seedDB) {
 }
 //Route for OAuth authentication 
 require('./auth/facebook/passport')(passport);
+require('./auth/twitter/passport')(passport);
 //Configuring for route dir
 require('./routes')(app);
 

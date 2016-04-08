@@ -17,6 +17,13 @@ var UserSchema = new Schema({
         token        : String,
         email        : String,
         name         : String
+    },
+    //For twitter login
+     twitter          : {
+        id           : String,
+        token        : String,
+        displayName  : String,
+        username     : String
     }
 });
 
