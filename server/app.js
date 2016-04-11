@@ -10,6 +10,8 @@ var path = require('path');
 var jwt = require('jsonwebtoken');
 var passport = require('passport'); //For OAuth Authentication
 var session = require('express-session')
+var multipart = require('connect-multiparty'); //For handling file uploads
+var multipartMiddleware = multipart();
 
 //To get data from POST requests
 app.use(bodyParser.urlencoded({extended: true }));
@@ -33,6 +35,10 @@ app.use(morgan('dev'));
 
 app.use(passport.initialize());
 app.use(passport.session()); 
+
+//For handling file upload
+app.use(multipartMiddleware);
+
 
 //Connecting MongoDB
 mongoose.connect(config.mongo.database);

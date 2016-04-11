@@ -47,7 +47,11 @@ angular.module('MEAN_Ecommerce',[
     /**
     Backend search
     */
-    'proSearch'
+    'proSearch',
+    /**
+    Uploading image file
+    */
+    'ngFileUpload'
 
 
 

@@ -1,27 +1,14 @@
 <form class="form-horizontal" ng-submit="product.saveProduct()">
-    <div class="form-group">
-        <label>Product Name</label>
-        <input type="title" class="form-control" ng-model="product.productData.title" placeholder="name">
-    </div>
-    <div class="form-group">
-        <label>Price</label>
-        <input type="price" class="form-control" ng-model="product.productData.price" placeholder="price">
-    </div>
-    <div class="form-group">
-        <label>Stock</label>
-        <input type="stock" class="form-control" ng-model="product.productData.stock" placeholder="stock">
-    </div>
-    <div class="form-group">
-        <label>Description</label>
-        <input type="description" class="form-control" ng-model="product.productData.description" placeholder="description">
-    </div>
-    <div class="form-group">
-        <label>Upload Image</label>
-        <input type="file" class="form-control" ng-model="product.productData.imageUrl">    
-    </div>
-
-    <button type="submit" class="btn btn-primary" ng-if="product.type == 'create'">Add Product</button>
+    <!-- Product Image will be uploaded first without touching submit button with the use of Angular -->
+    <div class="btn btn-info" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'" >Select Image Here</div>
 </form>
+</br></br></br>
+<div class="row">
+    Image will be added automatically after it has selected.</br>
+    Then after that, click the button below to add product Info.
+    <a ng-href="admin/products/{{ item._id }}" class="btn btn-primary">Add Product Info</a>
+</div>
 
 <div class="row show-hide-message" ng-show="product.message">
     <div class="alert alert-info">

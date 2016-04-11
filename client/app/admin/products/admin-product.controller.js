@@ -29,7 +29,7 @@ angular.module('adminProductCtrl',['adminProductService'])
     })
 
     //uploading the product
-    .controller('admin_ProductUploadController', function(Product){
+    .controller('admin_ProductUploadController', function( Upload, Product, $scope, $http){
         var upload = this;
         upload.type = 'create';
 
@@ -45,6 +45,31 @@ angular.module('adminProductCtrl',['adminProductService'])
                     upload.message = data.message;
                 });
             };
+
+        //use $watch to watch if there are any changes
+        $scope.$watch(function(){
+                return $scope.file
+            }, function (){
+               $scope.upload($scope.file); 
+            });
+                 
+            $scope.upload = function (file) {
+                if (file){
+                    Upload.upload({
+                        //send it to api route
+                        url: 'api/products/',
+                        method: 'POST', 
+                        file: file
+                    }).progress(function(evt){
+                        //progress for uploading
+                        console.log("uploading");
+                    }).success(function(data){
+                        
+                    }).error(function(error){
+                        console.log(error);
+                    })
+                }
+        };
     })
 
     //For editing the product

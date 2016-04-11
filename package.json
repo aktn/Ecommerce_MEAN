@@ -21,6 +21,7 @@
     "body-parser": "^1.14.2",
     "braintree": "^1.29.0",
     "composable-middleware": "^0.3.0",
+    "connect-multiparty": "^2.0.0",
     "express": "^4.13.3",
     "express-session": "^1.13.0",
     "jsonwebtoken": "^5.4.1",
@@ -28,8 +29,10 @@
     "mongoose-validate": "git://github.com/RGBboy/mongoose-validate.git",
     "morgan": "^1.6.1",
     "multiparty": "^4.1.2",
+    "ng-file-upload": "^12.0.4",
     "passport": "~0.1.17",
     "passport-facebook": "~1.0.2",
-    "passport-twitter": "^1.0.2"
+    "passport-twitter": "^1.0.2",
+    "path": "^0.12.7"
   }
 }

@@ -1,5 +1,7 @@
 var Product = require('./product.model');
-var path = require('path');
+var path = require('path'); // For creating paths
+var multiparty = require('multiparty'),
+    fs = require('fs-extra');//File System that will help to move images between file uploads
 
 //Returning all the products
 exports.index = function(req, res){
@@ -20,18 +22,35 @@ exports.show = function(req, res) {
 //Creating new products
 exports.create = function(req, res) {
     var item = new Product();
-    item.title = req.body.title;
-    item.price = req.body.price;
-    item.stock = req.body.stock;
-    item.category = req.body.category;
-    item.description = req.body.description;
-    item.imageBin = req.body.imageBin;
-    item.imageUrl = req.body.imageUrl;
 
-    item.save(function(err) {
-        if (err) return res.send(err);
-        res.json({ message: 'Product Added !' });
-    });
+    //get the image file
+    var file = req.files.file;
+    //console.log("User " + " is submitting " , file); FOR TESTING
+
+    //creating temporary path
+    var tempPath = file.path;
+    //point to the full folder dir that will store the image
+    var targetPath = path.join(__dirname, "../../../client/assets/uploads/" + file.name);
+    //For saving image path name in DB
+    var savePath = "/assets/uploads/" + file.name;
+    //Uploading file with help of File System
+    fs.rename(tempPath, targetPath, function (err){
+        if (err){
+            console.log(err)
+        } else {
+            //save the image path
+            item.imageUrl = savePath;
+            item.save(function(err){
+                    if (err){
+                        console.log("failed save")
+                        res.json({status: 500})
+                    } else {
+                        console.log("save successful");
+                        res.json({message: 'Product Image Added !'});
+                    }
+                })
+        }
+    })
 };
 
 //Updating products
