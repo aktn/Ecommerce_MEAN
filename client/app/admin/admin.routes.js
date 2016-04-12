@@ -32,6 +32,12 @@ angular.module('admin.routes', ['ngRoute'])
                 templateUrl: 'app/admin/products/views/admin.productEdit.html',
                 controller: 'admin_ProductDetailsController',
                 controllerAs: 'product'
+            })
+
+            .when('/admin/users/', {
+                templateUrl: 'app/admin/users/admin.userList.html',
+                controller: 'admin_UserController',
+                controllerAs: 'user'
             });
 
         //for pretty URLs

@@ -44,6 +44,9 @@ angular.module('MEAN_Ecommerce',[
     'adminProductCtrl',
     'adminProductService',
 
+    'adminUserCtrl',
+    'adminUserService',
+
     /**
     Backend search
     */

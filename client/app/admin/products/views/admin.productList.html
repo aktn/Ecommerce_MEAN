@@ -1,5 +1,6 @@
 <div class="jumbotron text-center">  
    <a ng-href="admin/upload/products" class="btn btn-info">Upload Products</a>
+   <a ng-href="admin/users" class="btn btn-info">User Lists</a>
     <h1>Product Lists</h1>
     <table class="table table-bordered table-striped" ng-show="product.products" >
         <thead>
@@ -17,7 +18,7 @@
             <td>{{ item.stock }}</td>
             <td>{{ item.description }}</td>
             <td>
-                <a ng-href="admin/products/{{ item._id }}" class="btn btn-info">Check</a>
+                <a ng-href="admin/products/{{ item._id }}" class="btn btn-info">Add Info</a>
                 <a href="#" ng-click="product.deleteProduct(item._id)" class="btn btn-primary">Delete</a>
             </td>
         </tr>
