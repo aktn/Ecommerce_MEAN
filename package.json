@@ -24,6 +24,7 @@
     "connect-multiparty": "^2.0.0",
     "express": "^4.13.3",
     "express-session": "^1.13.0",
+    "fs-extra": "^0.29.0",
     "jsonwebtoken": "^5.4.1",
     "mongoose": "^4.4.10",
     "mongoose-validate": "git://github.com/RGBboy/mongoose-validate.git",
