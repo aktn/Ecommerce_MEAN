@@ -1,6 +1,6 @@
 angular.module('userSignUpCtrl', ['userSignUpService'])
 
-.controller('userCreateController', function(User) {
+.controller('userCreateController', function(userSignUp) {
     
     var newUser = this;
     newUser.type = 'create';
@@ -11,7 +11,7 @@ angular.module('userSignUpCtrl', ['userSignUpService'])
         newUser.message = '';
         
         //Send to service.js to store data
-        User.create(newUser.signUpData)
+        userSignUp.create(newUser.signUpData)
             .success(function(data) {
                 
                 newUser.processing = false; //stop the process when done

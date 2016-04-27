@@ -1,6 +1,6 @@
 angular.module('userSignUpService', [])
 
-    .factory('User', function($http){
+    .factory('userSignUp', function($http){
 
         var userCreateFactory = {};
 
